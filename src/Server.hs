@@ -22,7 +22,7 @@ type WinnerAPI = "winners" :> QueryParam "nb" Int :> Get '[JSON] [User]
 startServer :: MVar Cache -> IO ()
 startServer cache = do
     putStrLn "Start web server"
-    run 9000 $ simpleCors $ app cache
+    run 3000 $ simpleCors $ app cache
 
 app :: MVar Cache -> Application
 app cache = serve api (server cache)
